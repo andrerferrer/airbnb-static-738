@@ -1,3 +1,19 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # verb 'path', to: 'controller#action', as: :nickname
+
+  # both below are the same
+  get "/", to: "flats#index", as: :flats
+  # root to: "flats#index", as: :flats
+
+  get "/flats/:id", to: "flats#show", as: :flat
+
 end
+
+
+# HTTP AND AJAX LECTURE
+# Restful (REST) pattern
+# VERB - ACTION
+# GET - READ
+# POST - CREATE
+# PUT/PATCH - UPDATE
+# DELETE - DESTROY

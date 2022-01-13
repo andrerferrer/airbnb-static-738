@@ -1,0 +1,32 @@
+<h1>My Lovely Flats - A Poor Airbnb Clone</h1>
+
+<ul style='display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 16px;'>
+  <% @flats.each do |flat| %>
+    <li>
+
+      <%# we can create a link like this %>
+      <%# link_to flat_path(flat['id']) do %>
+      <%# link_to "flats/#{flat['id']}" do %>
+        <%#= flat['name'] %> <%# flat['price'] %> <%# flat['priceCurrency'] %>
+      <%# end %>
+      <%# this is the best practice 🆙 %>
+
+      <%# we can create a link like that %>
+      <a href="flats/<%= flat['id'] %>">
+        <%= flat['name'] %> | <%= flat['price'] %> <%= flat['priceCurrency'] %>
+      </a>
+
+      <img src="<%= flat['imageUrl'] %>" alt="" style="width: 256px;">
+    </li>
+  <% end %>
+</ul>
+
+<%# 
+  {"id"=>211, 
+  "name"=>"Bohemian and Chic in Paris", 
+  "imageUrl"=>"https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/images/flat6.jpg", 
+  "price"=>90, 
+  "priceCurrency"=>"EUR", 
+  "lat"=>48.827855, 
+  "lng"=>2.350774} 
+%>
